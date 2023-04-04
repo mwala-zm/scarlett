@@ -46,3 +46,8 @@ group :development do
   # gem "spring"
 end
 
+gem 'graphql'
+
+group :development do
+  gem 'graphiql-rails'
+end
