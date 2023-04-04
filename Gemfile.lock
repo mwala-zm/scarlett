@@ -82,6 +82,7 @@ GEM
       railties
       sprockets-rails
     graphql (2.0.20)
+    graphql-rails-generators (1.1.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -172,6 +173,7 @@ DEPENDENCIES
   debug
   graphiql-rails
   graphql
+  graphql-rails-generators
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   sqlite3 (~> 1.4)

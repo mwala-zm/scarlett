@@ -46,8 +46,12 @@ group :development do
   # gem "spring"
 end
 
+# Graphql and graphiql libs
 gem 'graphql'
 
 group :development do
   gem 'graphiql-rails'
 end
+
+# generators
+gem 'graphql-rails-generators', group: :development 
