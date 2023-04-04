@@ -11,7 +11,7 @@ module Mutations
       if model.update(attributes.to_h)
         {user: model}
       else
-        model_errors!(model)
+        {errors: model.errors.full_messages}
       end
     end
   end

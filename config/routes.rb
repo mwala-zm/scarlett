@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/scarmin', as: 'rails_admin'
   devise_for :users
   # Graphiql route
   if Rails.env.development?
