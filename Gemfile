@@ -54,4 +54,7 @@ group :development do
 end
 
 # generators
-gem 'graphql-rails-generators', group: :development 
+gem 'graphql-rails-generators', group: :development
+
+# For authentication
+gem 'devise'

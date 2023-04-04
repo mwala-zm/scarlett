@@ -4,6 +4,11 @@ module Mutations
 
     argument :attributes, Types::Input::UserInput, required: true
 
+    def model_errors!(model)
+      # code here
+      model.error.message
+    end
+
     def resolve(attributes:)
       model = User.new(attributes.to_h)
 
