@@ -62,3 +62,8 @@ gem 'devise'
 # Admin
 gem 'rails_admin'
 gem "sassc-rails"
+
+gem 'sprockets', '~> 4.0'
+
+gem 'graphql_devise'
+gem 'omniauth', '~> 1.6', '>= 1.6.1'
