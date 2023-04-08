@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount_graphql_devise_for User, at: 'graphql_auth'
+  mount_graphql_devise_for User, at: '/auth'
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
