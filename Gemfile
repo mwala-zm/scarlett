@@ -58,6 +58,7 @@ gem 'graphql-rails-generators', group: :development
 
 # For authentication
 gem 'devise'
+gem 'devise_token_auth'
 
 # Admin
 gem 'rails_admin'
@@ -67,3 +68,9 @@ gem 'sprockets', '~> 4.0'
 
 gem 'graphql_devise'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
+
+# for the user roles
+gem "rolify"
+
+# User Abilty depending on role
+gem "cancancan"
