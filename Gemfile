@@ -74,3 +74,4 @@ gem "rolify"
 
 # User Abilty depending on role
 gem "cancancan"
+

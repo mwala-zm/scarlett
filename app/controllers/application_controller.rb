@@ -1,12 +1,19 @@
 class ApplicationController < ActionController::API
   include GraphqlDevise::SetUserByToken
 
-  def after_sign_in_path_for(resource)
-    if resource.is_a?(User)
-      if User.count == 1
-        resource.add_role 'admin'
-      end
-      resource
-    end
+  before_action :authenticate_user!
+
+  def execute
+    variables = ensure_hash(params[:variables])
+    query = params[:query]
+    operation_name = params[:operationName]
+    context = {
+      current_user: current_user,
+    }
+    result = HabitTrackerSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+    render json: result
+  rescue => e
+    raise e unless Rails.env.development?
+    handle_error_in_development e
   end
 end
