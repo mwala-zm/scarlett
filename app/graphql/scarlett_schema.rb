@@ -4,7 +4,7 @@ class ScarlettSchema < GraphQL::Schema
     query:            Types::QueryType,
     mutation:         Types::MutationType,
     resource_loaders: [
-      GraphqlDevise::ResourceLoader.new(User, only: [:login, :confirm_registration_with_token, :logout, :resend_confirmation_with_token, :register])
+      GraphqlDevise::ResourceLoader.new(User, only: [:login, :confirm_registration_with_token, :logout, :register])
     ]
   )
 

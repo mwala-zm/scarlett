@@ -75,3 +75,4 @@ gem "rolify"
 # User Abilty depending on role
 gem "cancancan"
 
+gem 'railties', '~> 7.0', '>= 7.0.4.3'
