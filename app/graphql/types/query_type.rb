@@ -2,6 +2,7 @@ module Types
   class QueryType < Types::BaseObject
     # Include queries provided by graphql_devise
     include GraphqlDevise::Concerns::QueryType
+
     # Get all users
     field :users, [Types::UserType], null: false
     def users
