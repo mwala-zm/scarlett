@@ -11,7 +11,7 @@ class GraphqlController < ApplicationController
     variables = prepare_variables(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    context = gql_devise_context(:user) 
+    context = gql_devise_context(:user)
     result = ScarlettSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result unless performed?
   rescue StandardError => e

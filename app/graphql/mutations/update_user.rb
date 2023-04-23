@@ -9,9 +9,9 @@ module Mutations
       model = User.find(id)
 
       if model.update(attributes.to_h)
-        {user: model}
+        { user: model }
       else
-        {errors: model.errors.full_messages}
+        { errors: model.errors.full_messages }
       end
     end
   end

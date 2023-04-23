@@ -29,8 +29,8 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
     if user.has_role? :admin
-      can :access, :rails_admin       # only allow admin users to access Rails Admin
-      can :read, :dashboard           # allow access to dashboard
+      can :access, :rails_admin # only allow admin users to access Rails Admin
+      can :read, :dashboard # allow access to dashboard
       can :manage, :all
     else
       can :read, :all

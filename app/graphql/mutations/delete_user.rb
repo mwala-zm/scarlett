@@ -8,7 +8,7 @@ module Mutations
       model = User.find(id)
 
       model.destroy
-      {user: model}
+      { user: model }
     end
   end
 end

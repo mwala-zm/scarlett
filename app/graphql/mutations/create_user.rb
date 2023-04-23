@@ -4,14 +4,13 @@ module Mutations
 
     argument :attributes, Types::Input::UserInput, required: true
 
-
     def resolve(attributes:)
       model = User.new(attributes.to_h)
 
       if model.save
-        {user: model}
+        { user: model }
       else
-        {errors: model.errors.full_messages}
+        { errors: model.errors.full_messages }
       end
     end
   end
