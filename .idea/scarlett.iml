@@ -61,6 +61,7 @@
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.12.0, Remote: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.6.0, Remote: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.6.4, Remote: ruby-3.2.1 (-p31) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jwt (v2.7.0, Remote: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kaminari (v1.2.2, Remote: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kaminari-actionview (v1.2.2, Remote: ruby-3.2.1 (-p31) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kaminari-activerecord (v1.2.2, Remote: ruby-3.2.1 (-p31) [gem]" level="application" />

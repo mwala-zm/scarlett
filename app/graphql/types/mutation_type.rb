@@ -1,6 +1,5 @@
 module Types
   class MutationType < Types::BaseObject
-
-    include GraphqlDevise::Concerns::MutationType
+    field_class GraphqlDevise::Types::BaseField
   end
 end
