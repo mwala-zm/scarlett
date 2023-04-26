@@ -4,13 +4,13 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
-  config.authenticate_with do
-    warden.authenticate! scope: :user
-  end
-  config.current_user_method(&:current_user)
-
-  ## == CancanCan ==
-  config.authorize_with :cancancan
+  # config.authenticate_with do
+  #   warden.authenticate! scope: :user
+  # end
+  # config.current_user_method(&:current_user)
+  #
+  # ## == CancanCan ==
+  # # config.authorize_with :cancancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -25,8 +25,8 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard # mandatory
+    index # mandatory
     new
     export
     bulk_delete

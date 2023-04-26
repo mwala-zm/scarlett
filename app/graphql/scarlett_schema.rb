@@ -1,8 +1,8 @@
 class ScarlettSchema < GraphQL::Schema
 
   use GraphqlDevise::SchemaPlugin.new(
-    query:            Types::QueryType,
-    mutation:         Types::MutationType,
+    query: Types::QueryType,
+    mutation: Types::MutationType,
     resource_loaders: [
       GraphqlDevise::ResourceLoader.new(User, only: [:login, :confirm_registration_with_token, :logout, :register])
     ]
