@@ -12,6 +12,12 @@ class User < ApplicationRecord
   # including after calling the `devise` method is important.
   include GraphqlDevise::Authenticatable
 
+    after_create :assign_default_role
+
+  def assign_default_role
+    self.add_role(:field) if self.roles.blank?
+  end 
+
   # make user ID UUID
   before_create do
     self.id = SecureRandom.uuid
