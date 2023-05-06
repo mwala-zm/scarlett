@@ -32,6 +32,9 @@ class Ability
       can :access, :rails_admin # only allow admin users to access Rails Admin
       can :read, :dashboard # allow access to dashboard
       can :manage, :all
+    elsif user.has_role? :field
+      can :read, :all
+      can :manage, :all
     else
       can :read, :all
     end

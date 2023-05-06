@@ -7,16 +7,17 @@ class User < ApplicationRecord
          :rememberable,
          :trackable,
          :validatable,
-         :omniauthable
+         :omniauthable,
+         :timeoutable
 
   # including after calling the `devise` method is important.
   include GraphqlDevise::Authenticatable
 
-    after_create :assign_default_role
+  after_create :assign_default_role
 
   def assign_default_role
     self.add_role(:field) if self.roles.blank?
-  end 
+  end
 
   # make user ID UUID
   before_create do

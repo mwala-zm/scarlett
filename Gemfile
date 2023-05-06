@@ -78,3 +78,9 @@ gem "cancancan"
 gem 'railties', '~> 7.0', '>= 7.0.4.3'
 
 gem 'jwt'
+
+# Preforming Test
+# Run against this stable release
+group :development, :test do
+  gem 'rspec-rails', '~> 6.0.0'
+end
