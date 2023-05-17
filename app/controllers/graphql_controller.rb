@@ -6,6 +6,7 @@ class GraphqlController < ApplicationController
 
   include Devise::Controllers::Helpers
   include GraphqlDevise::SetUserByToken
+  include ActionController::Cookies
 
   # before_action :authenticate_user!
 

@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_072006) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
   end
 
-  create_table "users", id: :string, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
     t.string "encrypted_password", default: "", null: false
