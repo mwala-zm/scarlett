@@ -5,8 +5,8 @@ module Mutations
     argument :id, GraphQL::Types::ID, required: true
     argument :attributes, Types::Input::UserInput, required: true
 
-    def resolve(attributes:, id:)
-      model = User.find(id)
+    def resolve(attributes:, uid:)
+      model = User.find(uid)
 
       if model.update(attributes.to_h)
         { user: model }

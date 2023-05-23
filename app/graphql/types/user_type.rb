@@ -2,7 +2,6 @@
 
 module Types
   class UserType < Types::BaseObject
-    field :id, ID, null: true
     field :name, String
     field :phone_number, String
     field :location, String
