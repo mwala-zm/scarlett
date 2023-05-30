@@ -17,7 +17,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Which bundler?
+          name: Install dependencies
           command: bundle -v && bundle install
       - ruby/install-deps
 
