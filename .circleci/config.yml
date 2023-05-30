@@ -20,6 +20,14 @@ jobs:
           name: Install dependencies
           command: bundle install
       - ruby/install-deps
+    
+  deploy:
+    docker:
+      - image: cimg/ruby:3.2.1
+    executor: ruby/default
+
+    steps:
+      - run: echo "running deployment"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
