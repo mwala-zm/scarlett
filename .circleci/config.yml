@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: bundle -v && bundle install
+          command: bundle install
       - ruby/install-deps
 
 # Orchestrate jobs using workflows
