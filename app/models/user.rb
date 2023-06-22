@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-
+  has_many :fields, dependent: :destroy
+  
   rolify
   # Include default devise modules.
   devise :database_authenticatable,
