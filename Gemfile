@@ -84,3 +84,7 @@ gem 'jwt'
 group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
 end
+
+group :development do
+  gem 'annotate'
+end
