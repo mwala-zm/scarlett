@@ -2,7 +2,7 @@
 #
 # Table name: crops
 #
-#  id           :integer          not null, primary key
+#  id           :bigint           not null, primary key
 #  crop_family  :string
 #  description  :text
 #  growth_stage :string
