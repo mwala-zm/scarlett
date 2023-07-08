@@ -21,4 +21,4 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['DEV_DB'] %>
+  database: <%= ENV['PROD_DB'] %>
