@@ -1,18 +1,32 @@
 module Mutations
   class UpdateUser < Mutations::BaseMutation
     field :user, Types::UserType, null: true
+    field :errors, [String], "List of ActiveModel errors", null: false
 
-    argument :id, GraphQL::Types::ID, required: true
     argument :attributes, Types::Input::UserInput, required: true
 
-    def resolve(attributes:, uid:)
-      model = User.find(uid)
+    def resolve(attributes:)
+      user = User.find(context[:current_resource].id)
 
-      if model.update(attributes.to_h)
-        { user: model }
-      else
-        { errors: model.errors.full_messages }
+      if user.nil?
+        return {
+          user: nil,
+          errors: ["You need to authenticate to perform this action"]
+        }
       end
+
+      if user.update(attributes.to_h)
+        {
+          user: user,
+          errors: []
+        }
+      else
+        {
+          user: nil,
+          errors: user.errors.full_messages
+        }
+      end
+
     end
   end
 end

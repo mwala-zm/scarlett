@@ -1,10 +1,10 @@
-# frozen_string_literal: true
-
 module Types
   class UserType < Types::BaseObject
-    field :name, String
-    field :phone_number, String
-    field :location, String
+    field :id, GraphQL::Types::ID, null: false
+    field :name, String, null: true
+    field :location, String, null: true
+    field :phone_number, String, null: true
+    field :email, String, null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end
