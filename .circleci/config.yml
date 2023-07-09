@@ -20,11 +20,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Start PostgreSQL Server
-          command: sudo service postgresql start
-      - run:
           name: Install dependencies
           command: bundle install
+      - run:
+          name: Start PostgreSQL Server
+          command: sudo service postgresql start
       - run:
           name: Set up database
           command: bundle exec rails db:create
