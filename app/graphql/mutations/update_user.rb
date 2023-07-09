@@ -6,14 +6,27 @@ module Mutations
     argument :attributes, Types::Input::UserInput, required: true
 
     def resolve(attributes:)
-      attributes = attributes.to_h
-      puts attributes[:uid]
-      
-      #if model.update(attributes.to_h)
-       # { user: model }
-      #else
-       # { errors: model.errors.full_messages }
-      #end
+      user = User.find(context[:current_resource].id)
+
+      if user.nil?
+        return {
+          user: nil,
+          errors: ["You need to authenticate to perform this action"]
+        }
+      end
+
+      if user.update(attributes.to_h)
+        {
+          user: user,
+          errors: []
+        }
+      else
+        {
+          user: nil,
+          errors: user.errors.full_messages
+        }
+      end
+
     end
   end
 end
