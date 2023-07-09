@@ -23,8 +23,11 @@ jobs:
           name: Install dependencies
           command: bundle install
       - run:
+          name: Installing postgres
+          command: sudo apt install postgresql postgresql-contrib
+      - run:
           name: Start PostgreSQL Server
-          command: sudo service postgresql start
+          command: sudo systemctl status postgresql
       - run:
           name: Set up database
           command: bundle exec rails db:create
