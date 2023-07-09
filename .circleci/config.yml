@@ -19,15 +19,22 @@ jobs:
       - run:
           name: Install dependencies
           command: bundle install
-      - ruby/install-deps
+      - run:
+          name: Run tests
+          command: bundle exec rspec
     
   deploy:
     docker:
       - image: cimg/ruby:3.2.1
     executor: ruby/default
-
     steps:
-      - run: echo "running deployment"
+      - checkout
+      - run:
+          name: Deploy to staging
+          command: bundle exec cap staging deploy
+      - run:
+          name: Deploy to production
+          command: bundle exec cap production deploy
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -36,4 +43,6 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
-      - deploy
+      - deploy:
+          requires:
+            - build
