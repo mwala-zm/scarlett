@@ -11,29 +11,27 @@ orbs:
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
   build:
+    parallelism: 1 # run three instances of this job in parallel
     docker:
       - image: cimg/ruby:3.2.1
-        environment:
-          POSTGRES_USER: "postgres"
-          POSTGRES_PASSWORD: "123456789"
+        environment: # environment variables for primary container
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: postgres
+          RAILS_ENV: test
+      - image: circleci/postgres:11 # database image
+        environment: # environment variables for database, it is kind of obvious but it is important that they match with your test config in database.yml
+          POSTGRES_USER: postgres
+          POSTGRES_DB: prod_scarlet
+          POSTGRES_PASSWORD: 123456789
     executor: ruby/default
     steps:
       - checkout
       - run:
           name: Install dependencies
           command: bundle install
-      # - run:
-      #     name: Installing postgres
-      #     command: sudo apt install postgresql postgresql-contrib
-      # - run:
-      #     name: Start PostgreSQL Server
-      #     command: sudo systemctl status postgresql
-      # - run:
-      #     name: Set up database
-      #     command: bundle exec rails db:create
-      # - run:
-      #     name: Run tests
-      #     command: bundle exec rspec
     
   deploy:
     docker:
@@ -43,10 +41,7 @@ jobs:
       - checkout
       - run:
           name: Deploy to staging
-          command: bundle exec cap staging deploy
-      - run:
-          name: Deploy to production
-          command: bundle exec cap production deploy
+          command: bundle -v
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
