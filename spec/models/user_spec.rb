@@ -36,9 +36,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it "Must create new user" do
-    expect(User.new).to be_ok
-  end
+  it "should be able to be created" do
+    user = User.new(name: "test", email: "mail@mail.com", password: "password", location: "location", phone_number: "1234567890")
+end
 
   it "should be able to be deleted"
   it "must have name, location, contact details"

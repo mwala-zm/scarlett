@@ -91,3 +91,11 @@ end
 
 gem 'pg'
 gem 'dotenv-rails'
+
+group :development, :test do
+  gem 'factory_bot_rails'
+end
+gem "sentry-ruby"
+gem "sentry-rails"
+
+gem "seedbank"
