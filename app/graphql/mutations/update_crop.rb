@@ -4,12 +4,12 @@ module Mutations
 
     argument :id, GraphQL::Types::ID, required: true
     argument :attributes, Types::Input::CropInput, required: true
-    
+
     def resolve(attributes:, id:)
       model = Crop.find(id)
 
       if model.update_attributes(attributes.to_h)
-        {crop: model}
+        { crop: model }
       else
         { errors: model.errors.full_messages }
       end

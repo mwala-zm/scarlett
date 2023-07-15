@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount_graphql_devise_for User, at: 'api/auth'
 
-  mount RailsAdmin::Engine => 'api/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => 'auth/admin', as: 'rails_admin'
 
   # Graphiql route
   if Rails.env.development?
