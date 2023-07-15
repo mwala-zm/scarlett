@@ -8,9 +8,9 @@ module Mutations
     
     def resolve(attributes:, id:)
       attributes = attributes.to_h
-      model = Field.find_by(id)
+      model = Field.find_by(id: id)
 
-      if model.update_attributes(attributes.to_h)
+      if model.update(attributes.to_h)
         {field: model, errors: model.errors.full_messages}
       else
         { errors: model.errors.full_messages }
