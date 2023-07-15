@@ -33,12 +33,12 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
   it "should be able to be created" do
     user = User.new(name: "test", email: "mail@mail.com", password: "password", location: "location", phone_number: "1234567890")
-end
+  end
 
   it "should be able to be deleted"
   it "must have name, location, contact details"

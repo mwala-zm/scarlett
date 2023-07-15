@@ -11,7 +11,7 @@ module Mutations
       model = Field.new(attributes.to_h)
 
       if model.save
-        {field: model, errors: model.errors.full_messages}
+        { field: model, errors: model.errors.full_messages }
       else
         { errors: model.errors.full_messages }
       end
