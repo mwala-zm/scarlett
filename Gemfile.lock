@@ -240,6 +240,10 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    search_object (1.2.5)
+    search_object_graphql (1.0.4)
+      graphql (> 1.8)
+      search_object (~> 1.2.2)
     seedbank (0.5.0)
       rake (>= 10.0)
     sentry-rails (5.10.0)
@@ -297,6 +301,7 @@ DEPENDENCIES
   rolify
   rspec-rails (~> 6.0.0)
   sassc-rails
+  search_object_graphql
   seedbank
   sentry-rails
   sentry-ruby

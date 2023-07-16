@@ -99,3 +99,4 @@ gem "sentry-ruby"
 gem "sentry-rails"
 
 gem "seedbank"
+gem 'search_object_graphql'
