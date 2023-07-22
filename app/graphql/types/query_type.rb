@@ -1,5 +1,6 @@
 module Types
   class QueryType < Types::BaseObject
+		field :fields, resolver: Resolvers::FieldSearch 
     # Include queries provided by graphql_devise
     field_class GraphqlDevise::Types::BaseField
 

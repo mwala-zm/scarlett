@@ -8,8 +8,8 @@ module Mutations
 
     def resolve(attributes:, id:)
       attributes = attributes.to_h
-      current_user = context[:current_resource]
-      model = current_user.fields.find_by(id: id)
+      model = Field.find_by(id: id)
+      current_ability.authorize! :update, model
 
       if model.nil?
         raise GraphQL::ExecutionError, "Field not found or does not belong to the current user"
