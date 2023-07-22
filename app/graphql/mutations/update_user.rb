@@ -7,6 +7,7 @@ module Mutations
 
     def resolve(attributes:)
       user = User.find(context[:current_resource].id)
+      current_ability.authorize! :update, user
 
       if user.nil?
         return {
