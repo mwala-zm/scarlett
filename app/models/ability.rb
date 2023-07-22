@@ -35,6 +35,7 @@ class Ability
     elsif user.has_role? :field
       can :read, Field, user:{id: user.id}
       can :update, Field, user:{id: user.id}
+      can :update, User
     else
       cannot :manage, :all
     end
