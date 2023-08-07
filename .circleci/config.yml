@@ -48,7 +48,7 @@ jobs:
       - checkout
       - run:
           name: Running Unit tests
-          command: bundle install && bundle exec rails rspec
+          command: bundle install && bundle exec rspec
           
   deploy:
     docker:
