@@ -13,7 +13,7 @@ jobs:
   build:
     parallelism: 1 # run three instances of this job in parallel
     docker:
-      - image: cimg/ruby:3.0.2
+      - image: cimg/ruby:3.2.1
         environment: # environment variables for primary container
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -42,7 +42,7 @@ jobs:
               key: v1-bundle-{{ checksum "Gemfile.lock" }}
   test:
     docker:
-      - image: cimg/ruby:3.0.2
+      - image: cimg/ruby:3.2.1
     executor: ruby/default
     steps:
       - checkout
@@ -52,7 +52,7 @@ jobs:
           
   deploy:
     docker:
-      - image: cimg/ruby:3.0.2
+      - image: cimg/ruby:3.2.1
     executor: ruby/default
     steps:
       - checkout
