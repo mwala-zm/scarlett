@@ -5,9 +5,6 @@ module Types
     # Include queries provided by graphql_devise
     field_class GraphqlDevise::Types::BaseField
 
-    # Get all users
-    field :users, [Types::UserType], null: false
-
     def users
       User.all
     end

@@ -22,4 +22,3 @@ test:
 production:
   <<: *default
   database: <%= ENV['PROD_DB'] %>
-  socket: "/cloudsql/ep-crop:europe-north1:scarlet-cloud"
