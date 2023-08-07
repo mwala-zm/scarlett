@@ -47,7 +47,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Running Unit tests
+          name: Create test env
           command: bundle install && rails db:create db:migrate
       - run:
           name: Running Unit tests
