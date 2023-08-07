@@ -5,7 +5,7 @@ version: 2.1
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 # See: https://circleci.com/docs/orb-intro/
 orbs:
-  ruby: circleci/ruby@2.0.1
+  ruby: circleci/ruby@2.1.0
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
@@ -13,7 +13,7 @@ jobs:
   build:
     parallelism: 1 # run three instances of this job in parallel
     docker:
-      - image: cimg/ruby:3.2.1
+      - image: cimg/ruby:3.0.2
         environment: # environment variables for primary container
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
@@ -21,27 +21,44 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: postgres
           RAILS_ENV: test
-      - image: circleci/postgres:11 # database image
+      - image: circleci/postgres:13 # database image
         environment: # environment variables for database, it is kind of obvious but it is important that they match with your test config in database.yml
           POSTGRES_USER: postgres
           POSTGRES_DB: prod_scarlet
           POSTGRES_PASSWORD: 123456789
     executor: ruby/default
     steps:
+          - checkout
+          - restore_cache:  
+              keys:
+                - v1-bundle-{{ checksum "Gemfile.lock" }}
+                - v1-bundle-
+          - run:
+              name: Install dependencies
+              command: bundle install --path vendor/bundle --jobs 3 --retry 3
+          - save_cache:  # Save bundle cache
+              paths:
+                - vendor/bundle
+              key: v1-bundle-{{ checksum "Gemfile.lock" }}
+  test:
+    docker:
+      - image: cimg/ruby:3.0.2
+    executor: ruby/default
+    steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: bundle install
-    
+          name: Running Unit tests
+          command: bundle exec rails rspec
+          
   deploy:
     docker:
-      - image: cimg/ruby:3.2.1
+      - image: cimg/ruby:3.0.2
     executor: ruby/default
     steps:
       - checkout
       - run:
           name: Deploy to staging
-          command: bundle -v
+          command: bundle exec cap staging deploy
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -50,6 +67,9 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
-      - deploy:
+      - test:
           requires:
             - build
+      - deploy:
+          requires:
+            - test
