@@ -3,6 +3,7 @@
 # Table name: fields
 #
 #  id         :bigint           not null, primary key
+#  location   :string
 #  name       :string
 #  size       :string
 #  created_at :datetime         not null

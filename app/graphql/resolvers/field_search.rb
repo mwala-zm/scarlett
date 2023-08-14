@@ -10,6 +10,7 @@ module Resolvers
     option(:size, type: String)   { |scope, value| scope.where size: value }
     option(:created_at, type: GraphQL::Types::ISO8601DateTime)   { |scope, value| scope.where created_at: value }
     option(:updated_at, type: GraphQL::Types::ISO8601DateTime)   { |scope, value| scope.where updated_at: value }
+    option(:location, type: String)   { |scope, value| scope.where location: value }
   
     def resolve
       []

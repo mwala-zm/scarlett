@@ -2,20 +2,13 @@ module Types
   class QueryType < Types::BaseObject
 		field :users, resolver: Resolvers::UserSearch 
 		field :fields, resolver: Resolvers::FieldSearch 
+    field :user, resolver: Resolvers::UserSearch
     # Include queries provided by graphql_devise
     field_class GraphqlDevise::Types::BaseField
 
-    def users
-      User.all
-    end
-
-    # Get a specific user
-    field :user, Types::UserType, null: false do
-      argument :id, ID, required: true
-    end
-
-    def user(id:)
-      User.find(id)
+    def user
+      user = User.find(context[:current_resource].id)
+      current_ability.authorize! :read, user
     end
   end
 end
