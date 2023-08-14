@@ -36,6 +36,7 @@ class Ability
       can :read, Field, user:{id: user.id}
       can :update, Field, user:{id: user.id}
       can :update, User
+      can :read, User, id: user.id
     else
       cannot :manage, :all
     end
