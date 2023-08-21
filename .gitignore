@@ -33,7 +33,11 @@
 /config/master.key
 
 /.idea
-./.ruby-lsp/
+/.ruby-lsp/
 
 .env
-./.idea/*
+/.idea/*
+
+# Hide vs code file
+/.vscode
+
