@@ -10,9 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_14_055817) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_03_122339) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
+  enable_extension "postgis_topology"
 
   create_table "crops", force: :cascade do |t|
     t.string "name"
@@ -30,7 +32,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_055817) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "location"
+    t.geography "field_geometry", limit: {:srid=>4326, :type=>"geometry", :geographic=>true}
     t.index ["user_id"], name: "index_fields_on_user_id"
+  end
+
+  create_table "my_spatial_table", force: :cascade do |t|
+    t.geometry "shape1", limit: {:srid=>0, :type=>"geometry"}
+    t.geometry "shape2", limit: {:srid=>0, :type=>"geometry"}
+    t.geometry "path", limit: {:srid=>3785, :type=>"line_string"}
+    t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.geography "lonlatheight", limit: {:srid=>4326, :type=>"st_point", :has_z=>true, :geographic=>true}
   end
 
   create_table "roles", force: :cascade do |t|

@@ -100,3 +100,6 @@ gem "sentry-rails"
 
 gem "seedbank"
 gem 'search_object_graphql'
+
+gem 'activerecord-postgis-adapter'
+gem "rgeo"

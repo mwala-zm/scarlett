@@ -58,6 +58,9 @@ GEM
     activerecord (7.0.4.3)
       activemodel (= 7.0.4.3)
       activesupport (= 7.0.4.3)
+    activerecord-postgis-adapter (8.0.2)
+      activerecord (~> 7.0.0)
+      rgeo-activerecord (~> 7.0.0)
     activestorage (7.0.4.3)
       actionpack (= 7.0.4.3)
       activejob (= 7.0.4.3)
@@ -214,6 +217,10 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    rgeo (3.0.0)
+    rgeo-activerecord (7.0.1)
+      activerecord (>= 5.0)
+      rgeo (>= 1.0.0)
     rolify (6.0.1)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
@@ -278,6 +285,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord-postgis-adapter
   annotate
   bootsnap
   cancancan
@@ -298,6 +306,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   rails_admin
   railties (~> 7.0, >= 7.0.4.3)
+  rgeo
   rolify
   rspec-rails (~> 6.0.0)
   sassc-rails
