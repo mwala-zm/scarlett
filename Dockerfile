@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.2.0
+ARG RUBY_VERSION=3.2.1
 FROM ruby:$RUBY_VERSION
 
 # Install libvips for Active Storage preview support
