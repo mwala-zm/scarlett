@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.2.1
+ARG RUBY_VERSION=3.2.0
 FROM ruby:$RUBY_VERSION
 
 # Install libvips for Active Storage preview support
@@ -13,7 +13,7 @@ WORKDIR /rails
 # Set production environment
 ENV RAILS_LOG_TO_STDOUT="1" \
     RAILS_SERVE_STATIC_FILES="true" \
-    RAILS_ENV="production" \
+    # RAILS_ENV="production" \
     BUNDLE_WITHOUT="development"
 
 # Install application gems
