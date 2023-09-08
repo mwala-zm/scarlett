@@ -14,6 +14,7 @@ WORKDIR /rails
 ENV RAILS_LOG_TO_STDOUT="1" \
     RAILS_SERVE_STATIC_FILES="true" \
     RAILS_ENV="production" \
+    RAILS_MASTER_KEY=9e07a326157e0d6fcd556de83c4655e3 \
     BUNDLE_WITHOUT="development"
 
 # Install application gems
