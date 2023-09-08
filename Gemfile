@@ -100,3 +100,4 @@ gem 'search_object_graphql'
 
 gem 'activerecord-postgis-adapter'
 gem "rgeo"
+gem 'rgeo-activerecord'

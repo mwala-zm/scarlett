@@ -3,7 +3,7 @@
 # Table name: fields
 #
 #  id             :bigint           not null, primary key
-#  field_geometry :geography        geometry, 4326
+#  field_geometry :geometry         geometry, 0
 #  location       :string
 #  name           :string
 #  size           :string
