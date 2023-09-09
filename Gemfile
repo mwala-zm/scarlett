@@ -61,7 +61,10 @@ gem 'devise'
 gem 'devise_token_auth'
 
 # Admin
-gem 'rails_admin'
+group :development do
+  gem 'rails_admin'
+end
+
 gem "sassc-rails"
 
 gem 'sprockets', '~> 4.0'
