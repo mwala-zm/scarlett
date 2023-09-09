@@ -61,9 +61,8 @@ gem 'devise'
 gem 'devise_token_auth'
 
 # Admin
-group :development do
-  gem 'rails_admin'
-end
+gem 'rails_admin'
+
 
 gem "sassc-rails"
 
