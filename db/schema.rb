@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_122339) do
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "name"
     t.string "location"
     t.string "phone_number"

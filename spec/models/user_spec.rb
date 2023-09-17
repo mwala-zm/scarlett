@@ -23,6 +23,7 @@
 #  sign_in_count          :integer          default(0), not null
 #  tokens                 :text
 #  uid                    :string           default(""), not null
+#  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

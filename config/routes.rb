@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   mount_graphql_devise_for User, at: 'api/auth'
 
-  mount RailsAdmin::Engine => 'auth/admin', as: 'rails_admin'
+  devise_for :users
+
+  if Rails.env.development?
+    mount RailsAdmin::Engine => 'auth/admin', as: 'rails_admin'
+  end
 
   # Graphiql route
   if Rails.env.development?
@@ -12,5 +16,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  # root to: 'home#index'
 end

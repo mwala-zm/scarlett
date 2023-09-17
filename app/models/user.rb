@@ -23,6 +23,7 @@
 #  sign_in_count          :integer          default(0), not null
 #  tokens                 :text
 #  uid                    :string           default(""), not null
+#  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -35,17 +36,13 @@
 #
 class User < ApplicationRecord
   has_many :fields, dependent: :destroy
-  
   rolify
-  # Include default devise modules.
-  devise :database_authenticatable,
-         :registerable,
-         :recoverable,
-         :rememberable,
-         :trackable,
-         :validatable,
-         :omniauthable,
-         :timeoutable
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+         #:confirmable
 
   # including after calling the `devise` method is important.
   include GraphqlDevise::Authenticatable
