@@ -1,7 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
-require "sprockets/railtie"
+#require "sprockets/railtie"
 require "omniauth"
 require 'graphql_devise'
 require "rgeo"
