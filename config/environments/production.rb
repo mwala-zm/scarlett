@@ -75,12 +75,6 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-<<<<<<< HEAD
-  # Devise
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
-=======
->>>>>>> 52a5644 (shift)
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -100,15 +94,9 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-<<<<<<< HEAD
-    logger = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger = ActiveSupport::TaggedLogging.new(logger)
-=======
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
->>>>>>> 52a5644 (shift)
   end
 
   # Do not dump schema after migrations.

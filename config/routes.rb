@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   mount_graphql_devise_for User, at: 'api/auth'
 
   devise_for :users
@@ -13,10 +12,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root to: 'home#index'
-=======
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
->>>>>>> 52a5644 (shift)
 end
