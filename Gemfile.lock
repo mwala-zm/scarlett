@@ -305,7 +305,6 @@ DEPENDENCIES
   seedbank
   sentry-rails
   sentry-ruby
-  sprockets (~> 4.0)
   tzinfo-data
 
 RUBY VERSION
