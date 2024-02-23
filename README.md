@@ -1,32 +1,29 @@
-<<<<<<< HEAD
-# Crop-Monitoring
+# CROP MONITORING SYSTEM 🌽
 
-This app is the client API for the Satellite Based Crop Mointoring System.
+Scarlett is a system that allows farms to monitor the NDVI of their crops
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mwala-zm/scarlett/tree/main.svg?style=svg&circle-token=f4fd6a1ddcad2ae1d092b4277be98e9aa9fad247)](https://dl.circleci.com/status-badge/redirect/gh/mwala-zm/scarlett/tree/main)
-=======
-# README
+## Installation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clone the repo
 
-Things you may want to cover:
+```bash
+git clone https://github.com/mwala-zm/scarlett.git
+```
 
-* Ruby version
+`You need postgres and postgis installed for the system to work`
 
-* System dependencies
+## Usage
+1. Install Dependencies
+```ruby
+bundle install
+```
+2. Run
+```ruby
+rails s
+```
 
-* Configuration
+## Contributing
 
-* Database creation
+## License
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
->>>>>>> 52a5644 (shift)
+[MIT](https://choosealicense.com/licenses/mit/)
