@@ -29,6 +29,7 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+<<<<<<< HEAD
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
@@ -41,3 +42,9 @@
 # Hide vs code file
 /.vscode
 
+=======
+/public/assets
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+>>>>>>> 52a5644 (shift)
