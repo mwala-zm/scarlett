@@ -8,17 +8,16 @@ class GraphqlController < ApplicationController
   include GraphqlDevise::SetUserByToken
   include ActionController::Cookies
 
-  # before_action :authenticate_user!
-
   def execute
     variables = prepare_variables(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
     context = gql_devise_context(:user)
-    result = ScarlettSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+    result = ScarlettSchema.execute(query, variables:, context:, operation_name:)
     render json: result unless performed?
   rescue StandardError => e
     raise e unless Rails.env.development?
+
     handle_error_in_development(e)
   end
 

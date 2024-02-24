@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  resources :crops
   root 'pages#home'
   mount_graphql_devise_for User, at: 'api/auth'
 
   get 'crops/index'
 
   devise_for :users
-  resource :crops
+  resources :fields
 
   mount RailsAdmin::Engine => 'admin', as: 'rails_admin' if Rails.env.development?
 

@@ -12,10 +12,10 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/crops", type: :request do
+RSpec.describe "/fields", type: :request do
   
   # This should return the minimal set of attributes required to create a valid
-  # Crop. As you add validations to Crop, be sure to
+  # Field. As you add validations to Field, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -27,59 +27,59 @@ RSpec.describe "/crops", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Crop.create! valid_attributes
-      get crops_url
+      Field.create! valid_attributes
+      get fields_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      crop = Crop.create! valid_attributes
-      get crop_url(crop)
+      field = Field.create! valid_attributes
+      get field_url(field)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_crop_url
+      get new_field_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /edit" do
     it "renders a successful response" do
-      crop = Crop.create! valid_attributes
-      get edit_crop_url(crop)
+      field = Field.create! valid_attributes
+      get edit_field_url(field)
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Crop" do
+      it "creates a new Field" do
         expect {
-          post crops_url, params: { crop: valid_attributes }
-        }.to change(Crop, :count).by(1)
+          post fields_url, params: { field: valid_attributes }
+        }.to change(Field, :count).by(1)
       end
 
-      it "redirects to the created crop" do
-        post crops_url, params: { crop: valid_attributes }
-        expect(response).to redirect_to(crop_url(Crop.last))
+      it "redirects to the created field" do
+        post fields_url, params: { field: valid_attributes }
+        expect(response).to redirect_to(field_url(Field.last))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Crop" do
+      it "does not create a new Field" do
         expect {
-          post crops_url, params: { crop: invalid_attributes }
-        }.to change(Crop, :count).by(0)
+          post fields_url, params: { field: invalid_attributes }
+        }.to change(Field, :count).by(0)
       end
 
     
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post crops_url, params: { crop: invalid_attributes }
+        post fields_url, params: { field: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     
@@ -92,26 +92,26 @@ RSpec.describe "/crops", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested crop" do
-        crop = Crop.create! valid_attributes
-        patch crop_url(crop), params: { crop: new_attributes }
-        crop.reload
+      it "updates the requested field" do
+        field = Field.create! valid_attributes
+        patch field_url(field), params: { field: new_attributes }
+        field.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the crop" do
-        crop = Crop.create! valid_attributes
-        patch crop_url(crop), params: { crop: new_attributes }
-        crop.reload
-        expect(response).to redirect_to(crop_url(crop))
+      it "redirects to the field" do
+        field = Field.create! valid_attributes
+        patch field_url(field), params: { field: new_attributes }
+        field.reload
+        expect(response).to redirect_to(field_url(field))
       end
     end
 
     context "with invalid parameters" do
     
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        crop = Crop.create! valid_attributes
-        patch crop_url(crop), params: { crop: invalid_attributes }
+        field = Field.create! valid_attributes
+        patch field_url(field), params: { field: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     
@@ -119,17 +119,17 @@ RSpec.describe "/crops", type: :request do
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested crop" do
-      crop = Crop.create! valid_attributes
+    it "destroys the requested field" do
+      field = Field.create! valid_attributes
       expect {
-        delete crop_url(crop)
-      }.to change(Crop, :count).by(-1)
+        delete field_url(field)
+      }.to change(Field, :count).by(-1)
     end
 
-    it "redirects to the crops list" do
-      crop = Crop.create! valid_attributes
-      delete crop_url(crop)
-      expect(response).to redirect_to(crops_url)
+    it "redirects to the fields list" do
+      field = Field.create! valid_attributes
+      delete field_url(field)
+      expect(response).to redirect_to(fields_url)
     end
   end
 end

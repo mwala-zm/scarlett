@@ -35,7 +35,6 @@
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
 class User < ApplicationRecord
-  has_many :fields, dependent: :destroy
   rolify
 
   # Include default devise modules. Others available are:
@@ -46,10 +45,11 @@ class User < ApplicationRecord
 
   # including after calling the `devise` method is important.
   include GraphqlDevise::Authenticatable
+  has_many :fields, dependent: :destroy
 
   after_create :assign_default_role
 
   def assign_default_role
-    add_role(:field) if roles.blank?
+    add_role(:sclt) if roles.blank?
   end
 end

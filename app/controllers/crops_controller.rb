@@ -2,24 +2,43 @@ class CropsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_crop, only: %i[show edit update destroy]
 
+  # GET /crops or /crops.json
   def index
-    # @crops = Crop.accessible_by(current_ability)
     @crops = Crop.all
+    @field_crops = Crops.accessible_by(current_ability)
   end
 
+  # GET /crops/1 or /crops/1.json
   def show; end
 
-  def edit; end
-
-  def create
-    @crop = Crop.new(crop_params.merge(user: current_user))
-    @crop.save
+  # GET /crops/new
+  def new
+    @crop = Crop.new
   end
 
+  # GET /crops/1/edit
+  def edit; end
+
+  # POST /crops or /crops.json
+  def create
+    @crop = Crop.new(crop_params)
+
+    respond_to do |format|
+      if @crop.save
+        format.html { redirect_to crop_url(@crop), notice: 'Crop was successfully created.' }
+        format.json { render :show, status: :created, location: @crop }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @crop.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /crops/1 or /crops/1.json
   def update
     respond_to do |format|
-      if @crop.update(post_params)
-        format.html { redirect_to post_url(@crop), notice: 'Successfully updated.' }
+      if @crop.update(crop_params)
+        format.html { redirect_to crop_url(@crop), notice: 'Crop was successfully updated.' }
         format.json { render :show, status: :ok, location: @crop }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -28,22 +47,25 @@ class CropsController < ApplicationController
     end
   end
 
+  # DELETE /crops/1 or /crops/1.json
   def destroy
-    @crop.destroy!
+    @crop.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: '#{@crop.name} has been removed successfully.' }
+      format.html { redirect_to crops_url, notice: 'Crop was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
 
+  # Use callbacks to share common setup or constraints between actions.
   def set_crop
     @crop = Crop.find(params[:id])
   end
 
+  # Only allow a list of trusted parameters through.
   def crop_params
-    params.require(:crop).permit(:name, :description, :growth_stage, :crop_family)
+    params.require(:crop).permit(:name, :growth_stage, :description, :crop_family)
   end
 end
