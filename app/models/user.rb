@@ -41,8 +41,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :confirmable
+         :recoverable, :rememberable, :validatable
+  # :confirmable
 
   # including after calling the `devise` method is important.
   include GraphqlDevise::Authenticatable
@@ -50,8 +50,6 @@ class User < ApplicationRecord
   after_create :assign_default_role
 
   def assign_default_role
-    self.add_role(:field) if self.roles.blank?
+    add_role(:field) if roles.blank?
   end
-
 end
-

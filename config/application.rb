@@ -1,11 +1,11 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
-require "sprockets/railtie"
-require "omniauth"
+require 'rails/all'
+require 'sprockets/railtie'
+require 'omniauth'
 require 'graphql_devise'
-require "rgeo"
-require "annotate"
+require 'rgeo'
+require 'annotate'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -16,6 +16,7 @@ module Scarlett
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.i18n.default_locale = :en
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
