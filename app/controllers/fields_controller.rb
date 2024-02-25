@@ -20,7 +20,7 @@ class FieldsController < ApplicationController
 
   # POST /fields or /fields.json
   def create
-    @field = Field.new(field_params)
+    @field = Field.new(field_params.merge(user: current_user))
 
     respond_to do |format|
       if @field.save

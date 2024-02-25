@@ -11,10 +11,11 @@
 #  current_sign_in_ip     :string
 #  email                  :string
 #  encrypted_password     :string           default(""), not null
+#  first_name             :string
+#  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  location               :string
-#  name                   :string
 #  phone_number           :string
 #  provider               :string           default("email"), not null
 #  remember_created_at    :datetime
@@ -46,10 +47,19 @@ class User < ApplicationRecord
   # including after calling the `devise` method is important.
   include GraphqlDevise::Authenticatable
   has_many :fields, dependent: :destroy
+  before_save :format_name
 
   after_create :assign_default_role
 
   def assign_default_role
     add_role(:sclt) if roles.blank?
+  end
+
+  private
+
+  def format_name
+    errors.add("Names can't be nil") if first_name.nil? && last_name.nil
+    self.first_name = first_name.capitalize
+    self.last_name = last_name.capitalize
   end
 end

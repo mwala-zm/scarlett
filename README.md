@@ -24,6 +24,11 @@ rails s
 
 ## Contributing
 
+for contributions ensure you fork this repository
+```ruby
+git clone https://github.com/[your-username]/scarlett.git
+```
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

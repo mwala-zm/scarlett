@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :crops
-  root 'pages#home'
+  root 'pages#index'
   mount_graphql_devise_for User, at: 'api/auth'
 
   get 'crops/index'

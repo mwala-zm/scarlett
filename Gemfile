@@ -125,4 +125,5 @@ end
 
 gem 'jsbundling-rails', '~> 1.3'
 
+gem 'phonelib'
 gem 'tailwindcss-rails', '~> 2.3'

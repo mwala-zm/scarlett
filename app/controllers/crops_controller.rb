@@ -5,7 +5,7 @@ class CropsController < ApplicationController
   # GET /crops or /crops.json
   def index
     @crops = Crop.all
-    @field_crops = Crops.accessible_by(current_ability)
+    @field_crops = Crop.accessible_by(current_ability)
   end
 
   # GET /crops/1 or /crops/1.json
