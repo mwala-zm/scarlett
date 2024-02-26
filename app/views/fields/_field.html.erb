@@ -1,4 +1,5 @@
-<div id="<%= dom_id field %>" class="font-archivo">
+<div id="<%= dom_id field %>" class="font-archivo flex flex-row space-x-6">
+  <div>
   <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
     <%= field.name %>
@@ -13,10 +14,20 @@
     <strong class="block font-medium mb-1">Location:</strong>
     <%= field.location %>
   </p>
+  </div>
 
+  <div>
+  <p class="my-5">
+    <%= field.field_geometry %>
+  </p>
+  </div>
+
+
+  <div class="flex flex-col">
   <% if action_name != "show" %>
     <%= link_to "Show this field", field, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Edit this field", edit_field_path(field), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
+  </div>
 </div>
