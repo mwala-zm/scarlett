@@ -11,4 +11,9 @@
 #  updated_at   :datetime         not null
 #
 class Crop < ApplicationRecord
+  extend Mobility
+
+  translates :name, type: :string
+  translates :crop_family, type: :string
+  translates :growth_stage, type: :string
 end

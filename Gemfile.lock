@@ -78,8 +78,16 @@ GEM
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
+    ast (2.4.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
+    better_html (2.0.2)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -128,8 +136,20 @@ GEM
       rails (>= 4.2, < 7.1)
       zeitwerk
     hashie (5.0.0)
+    highline (3.0.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    i18n-tasks (1.0.13)
+      activesupport (>= 4.0.2)
+      ast (>= 2.1.0)
+      better_html (>= 1.0, < 3.0)
+      erubi
+      highline (>= 2.0.0)
+      i18n
+      parser (>= 3.2.2.1)
+      rails-i18n
+      rainbow (>= 2.2.2, < 4.0)
+      terminal-table (>= 1.5.1)
     io-console (0.7.2)
     irb (1.11.2)
       rdoc
@@ -187,6 +207,9 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
     orm_adapter (0.5.0)
+    parser (3.3.0.5)
+      ast (~> 2.4.1)
+      racc
     pg (1.5.5)
     phonelib (0.8.7)
     psych (5.1.2)
@@ -240,6 +263,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
+    rainbow (3.1.1)
     rake (13.1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
@@ -300,6 +324,7 @@ GEM
       sentry-ruby (~> 5.16.1)
     sentry-ruby (5.16.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
+    smart_properties (1.17.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -312,6 +337,8 @@ GEM
     stringio (3.1.0)
     tailwindcss-rails (2.3.0-x86_64-linux)
       railties (>= 6.0.0)
+    terminal-table (3.0.2)
+      unicode-display_width (>= 1.1.1, < 3)
     thor (1.3.0)
     tilt (2.3.0)
     timeout (0.4.1)
@@ -321,6 +348,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.5.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -352,6 +380,7 @@ DEPENDENCIES
   graphql
   graphql-rails-generators
   graphql_devise
+  i18n-tasks (~> 1.0.13)
   jbuilder
   jsbundling-rails (~> 1.3)
   jwt

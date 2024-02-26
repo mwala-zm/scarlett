@@ -16,6 +16,7 @@
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  location               :string
+#  middle_name            :string           default("")
 #  phone_number           :string
 #  provider               :string           default("email"), not null
 #  remember_created_at    :datetime
@@ -41,13 +42,15 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :confirmable
+         :recoverable, :rememberable, :validatable
+  # :confirmable
 
   # including after calling the `devise` method is important.
   include GraphqlDevise::Authenticatable
   has_many :fields, dependent: :destroy
-  before_save :format_name
+  validate :validate_phone_number
+  # before_save :format_name
+  before_save :format_phone
 
   after_create :assign_default_role
 
@@ -61,5 +64,16 @@ class User < ApplicationRecord
     errors.add("Names can't be nil") if first_name.nil? && last_name.nil
     self.first_name = first_name.capitalize
     self.last_name = last_name.capitalize
+  end
+
+  def validate_phone_number
+    errors.add("Phone number can't be nil") if phone_number.nil?
+    return if Phonelib.valid?(phone_number)
+
+    errors.add(:phone_number, ' is not valid')
+  end
+
+  def format_phone
+    self.phone_number = Phonelib.parse(phone_number).e164
   end
 end

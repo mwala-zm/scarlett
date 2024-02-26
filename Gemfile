@@ -69,6 +69,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'annotate'
 end
 
 # Graphql
@@ -99,8 +100,6 @@ gem 'railties', '~> 7.0', '>= 7.0.4.3'
 
 gem 'jwt'
 
-gem 'annotate'
-
 gem 'dotenv-rails'
 gem 'pg'
 
@@ -125,5 +124,6 @@ end
 
 gem 'jsbundling-rails', '~> 1.3'
 
+gem 'i18n-tasks', '~> 1.0.13', group: :development
 gem 'phonelib'
 gem 'tailwindcss-rails', '~> 2.3'
