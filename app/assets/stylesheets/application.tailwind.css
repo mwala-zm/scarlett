@@ -1,4 +1,4 @@
-@import url("https://api.fontshare.com/v2/css?f[]=archivo@401,400&f[]=clash-display@700,500,600&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=archivo@401,400,600&f[]=clash-display@700,500,600&display=swap");
 
 @tailwind base;
 @tailwind components;

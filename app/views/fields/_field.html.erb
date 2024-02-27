@@ -1,31 +1,41 @@
-<div id="<%= dom_id field %>" class="font-archivo flex flex-row space-x-6">
+<div id="<%= dom_id field %>" class="font-archivo flex flex-col space-x-6">
   <div>
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= field.name %>
-  </p>
+    <p class="my-5">
+      <strong class="block font-bold mb-1">Name:</strong>
+      <span class="italic">
+        <%= field.name %>
+      </span>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Size:</strong>
-    <%= field.size %>
-  </p>
+    <p class="my-5">
+      <strong class="inline-block font-bold mb-1">Size:</strong>
+      <span class="italic">
+        <%= field.size %>
+      </span>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Location:</strong>
-    <%= field.location %>
-  </p>
+    <p class="my-5">
+      <strong class="inline-block font-bold mb-1">Location:</strong>
+      <span class="italic">
+        <%= field.location %>
+      </span>
+    </p>
   </div>
 
-  <div id="map">
-    <%= js_map [{latitude: 37.7829, longitude: -122.4190}] %>
+  <div id="map" class="my-4">
+    <% factory = RGeo::Geographic.simple_mercator_factory %>
+    <% geometry = factory.parse_wkt("#{field.field_geometry}") %>
+    <% geojson = RGeo::GeoJSON.encode(geometry) %>
+    <% coordinates = geojson["coordinates"] %>
+    <%= area_map [{ geometry: { type: "Polygon", coordinates: coordinates } }] %>
   </div>
 
 
-  <div class="flex flex-col">
-  <% if action_name != "show" %>
-    <%= link_to "Show this field", field, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this field", edit_field_path(field), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <div class="flex flex-row">
+    <% if action_name != "show" %>
+      <%= link_to "Show this field", field, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to "Edit this field", edit_field_path(field), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <hr class="mt-6">
+    <% end %>
   </div>
 </div>
