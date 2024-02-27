@@ -4,6 +4,7 @@ require 'rails/all'
 require 'omniauth'
 require 'graphql_devise'
 require 'rgeo'
+require 'rgeo-geojson'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

@@ -181,6 +181,7 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mapkick-rb (0.1.5)
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -280,6 +281,8 @@ GEM
     rgeo (3.0.1)
     rgeo-activerecord (7.0.1)
       activerecord (>= 5.0)
+      rgeo (>= 1.0.0)
+    rgeo-geojson (2.1.1)
       rgeo (>= 1.0.0)
     rolify (6.0.1)
     rspec-core (3.13.0)
@@ -384,6 +387,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails (~> 1.3)
   jwt
+  mapkick-rb (~> 0.1.5)
   mobility (~> 1.3.0.rc1)
   omniauth (~> 1.6, >= 1.6.1)
   pg
@@ -397,6 +401,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rgeo
   rgeo-activerecord
+  rgeo-geojson
   rolify
   rspec-rails (~> 6.0.0)
   sassc-rails

@@ -112,6 +112,7 @@ gem 'seedbank'
 gem 'activerecord-postgis-adapter'
 gem 'rgeo'
 gem 'rgeo-activerecord'
+gem 'rgeo-geojson'
 
 gem 'mobility', '~> 1.3.0.rc1'
 gem 'rails-i18n', '~> 7.0.0'
@@ -127,3 +128,5 @@ gem 'jsbundling-rails', '~> 1.3'
 gem 'i18n-tasks', '~> 1.0.13', group: :development
 gem 'phonelib'
 gem 'tailwindcss-rails', '~> 2.3'
+
+gem 'mapkick-rb', '~> 0.1.5'
