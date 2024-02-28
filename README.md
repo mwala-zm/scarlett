@@ -21,16 +21,23 @@ bundle install
 ```ruby
 rails s
 ```
+or
+```ruby
+bin/dev
+```
+for `bin/dev` foreman must be installed
 
-## NEEDED
-1.
-https://wktmap.com/
 ## Contributing
 
-for contributions ensure you fork this repository
+`Pick or Create` an Issue you would like to tackle. Ensure that you label your issue.
+
+Fork this repository
 ```ruby
 git clone https://github.com/[your-username]/scarlett.git
 ```
+### NEEDED for development
+1. https://wktmap.com/
+2. That's it
 
 ## License
 
