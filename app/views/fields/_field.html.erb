@@ -27,7 +27,7 @@
     <% geometry = factory.parse_wkt("#{field.field_geometry}") %>
     <% geojson = RGeo::GeoJSON.encode(geometry) %>
     <% coordinates = geojson["coordinates"] %>
-    <%= area_map [{ geometry: { type: "Polygon", coordinates: coordinates } }] %>
+    <%= static_area_map [{ geometry: { type: "Polygon", coordinates: coordinates } }] %>
   </div>
 
 

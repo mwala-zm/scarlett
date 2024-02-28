@@ -130,3 +130,4 @@ gem 'phonelib'
 gem 'tailwindcss-rails', '~> 2.3'
 
 gem 'mapkick-rb', '~> 0.1.5'
+gem 'mapkick-static'
