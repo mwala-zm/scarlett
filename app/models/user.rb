@@ -61,13 +61,13 @@ class User < ApplicationRecord
   private
 
   def format_name
-    errors.add("Names can't be nil") if first_name.nil? && last_name.nil
+    errors.add(:first_name, "Names can't be nil") if first_name.nil? && last_name.nil
     self.first_name = first_name.capitalize
     self.last_name = last_name.capitalize
   end
 
   def validate_phone_number
-    errors.add("Phone number can't be nil") if phone_number.nil?
+    errors.add(:phone_number, "can't be nil") if phone_number.nil?
     return if Phonelib.valid?(phone_number)
 
     errors.add(:phone_number, ' is not valid')
