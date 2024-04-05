@@ -13,22 +13,19 @@
     <% end %>
 
     <div class="my-5">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Field Name" %>
     </div>
 
     <div class="my-5">
-      <%= form.label :size %>
-      <%= form.text_field :size, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.text_field :size, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Field Size" %>
     </div>
 
     <div class="my-5">
-      <%= form.label :location %>
-      <%= form.text_field :location, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.combobox :location, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Location" %>
     </div>
 
     <div class="my-5">
-      <%= area_map [{geometry: {type: "Polygon"}}], zoom: 15, controls: true, tooltips: {html: true} %>
+      <%= js_map [{latitude: -13.1339, longitude: 27.8493}] , zoom: 5, controls: true, tooltips: {html: true}, library: {hash: true} %>
     </div>
 
     <div class="inline">

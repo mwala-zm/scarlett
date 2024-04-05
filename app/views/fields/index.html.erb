@@ -13,8 +13,10 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
+
     <div class="flex justify-between items-center">
       <h1 class="font-clash font-semibold text-4xl">Fields</h1>
+    <%= combobox_tag "fields", @fields %>
       <%= link_to "New field", new_field_path, class: "rounded-[20px] py-[12px] px-[32px] bg-blue-600 text-white block font-medium font-archivo" %>
     </div>
 

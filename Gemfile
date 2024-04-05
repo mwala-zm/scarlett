@@ -70,6 +70,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'annotate'
+  gem 'letter_opener', group: :development
 end
 
 # Graphql
@@ -129,5 +130,6 @@ gem 'i18n-tasks', '~> 1.0.13', group: :development
 gem 'phonelib'
 gem 'tailwindcss-rails', '~> 2.3'
 
+gem 'hotwire_combobox'
 gem 'mapkick-rb', '~> 0.1.5'
 gem 'mapkick-static'
