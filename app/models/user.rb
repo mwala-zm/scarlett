@@ -49,7 +49,6 @@ class User < ApplicationRecord
   include GraphqlDevise::Authenticatable
   has_many :fields, dependent: :destroy
   validate :validate_phone_number
-  # before_save :format_name
   before_save :format_phone
 
   after_create :assign_default_role
@@ -59,12 +58,6 @@ class User < ApplicationRecord
   end
 
   private
-
-  def format_name
-    errors.add(:first_name, "Names can't be nil") if first_name.nil? && last_name.nil
-    self.first_name = first_name.capitalize
-    self.last_name = last_name.capitalize
-  end
 
   def validate_phone_number
     errors.add(:phone_number, "can't be nil") if phone_number.nil?
