@@ -1,0 +1,15 @@
+<% if current_user %>
+  <div class="flex flex-row w-full items-center space-x-10">
+    <div>
+      <%= link_to "crops", crops_path, class: "capitalize font-clash font-semibold border-2 py-[12px] px-[32px] border-green-500 rounded-[20px] hover:bg-green-300 duration-500 ease-in-out" %>
+    </div>
+    <div>
+      <%= link_to "fields", fields_path, class: "capitalize font-clash font-semibold border-2 py-[12px] px-[32px] border-green-500 rounded-[20px] hover:bg-green-300 duration-500 ease-in-out" %>
+    </div>
+    <div>
+      <%= button_to "log out", destroy_user_session_path, method: :delete, class: "capitalize font-clash font-semibold border-2 py-[12px] px-[32px] border-red-500 rounded-[20px] hover:bg-red-300 duration-500 ease-in-out" %>
+    </div>
+  </div>
+  <%else %>
+  <%= render partial: "hero" %>
+<% end %>

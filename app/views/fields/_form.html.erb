@@ -1,0 +1,35 @@
+<div class="font-archivo">
+  <%= form_with(model: field, class: "contents") do |form| %>
+    <% if field.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(field.errors.count, "error") %> prohibited this field from being saved:</h2>
+
+        <ul>
+          <% field.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="my-5">
+      <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Field Name" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.text_field :size, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Field Size" %>
+    </div>
+
+    <div class="my-5">
+      <%= form.combobox :location, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "Location" %>
+    </div>
+
+    <div class="my-5">
+      <%= js_map [{latitude: -13.1339, longitude: 27.8493}] , zoom: 5, controls: true, tooltips: {html: true}, library: {hash: true} %>
+    </div>
+
+    <div class="inline">
+      <%= form.submit class: "rounded-[20px] py-[12px] px-[32px] bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    </div>
+  <% end %>
+</div>

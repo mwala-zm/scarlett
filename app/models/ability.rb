@@ -32,11 +32,12 @@ class Ability
       can :access, :rails_admin # only allow admin users to access Rails Admin
       can :read, :dashboard # allow access to dashboard
       can :manage, :all
-    elsif user.has_role? :field
-      can :read, Field, user:{id: user.id}
-      can :update, Field, user:{id: user.id}
-      can :update, User
+    elsif user.has_role? :sclt
+      can :read, Field, user: { id: user.id }
+      can :update, Field, user: { id: user.id }
+      can(:update, User, user: { id: user.id })
       can :read, User, id: user.id
+      can :destroy, User, user: { id: user.id }
     else
       cannot :manage, :all
     end

@@ -1,7 +1,7 @@
 module Mutations
   class UpdateUser < Mutations::BaseMutation
     field :user, Types::UserType, null: true
-    field :errors, [String], "List of ActiveModel errors", null: false
+    field :errors, [String], 'List of ActiveModel errors', null: false
 
     argument :attributes, Types::Input::UserInput, required: true
 
@@ -12,19 +12,19 @@ module Mutations
       if user.nil?
         return {
           user: nil,
-          errors: ["You need to authenticate to perform this action"],
+          errors: ['You need to authenticate to perform this action']
         }
       end
 
       if user.update(attributes.to_h)
         {
-          user: user,
-          errors: user.errors.full_messages,
+          user:,
+          errors: user.errors.full_messages
         }
       else
         {
           user: nil,
-          errors: user.errors.full_messages,
+          errors: user.errors.full_messages
         }
       end
     end

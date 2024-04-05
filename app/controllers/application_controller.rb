@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
-  include DeviseTokenAuth::Concerns::SetUserByToken
-  include GraphqlDevise::SetUserByToken
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   protect_from_forgery
-  def after_confirmation_path
+  def after_confirmation_path; end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name phone_number])
   end
 end

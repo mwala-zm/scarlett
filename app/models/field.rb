@@ -21,4 +21,9 @@
 #
 class Field < ApplicationRecord
   belongs_to :user
+
+  extend Mobility
+
+  translates :size, type: :string
+  translates :location, type: :string
 end

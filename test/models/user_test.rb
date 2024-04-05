@@ -11,10 +11,12 @@
 #  current_sign_in_ip     :string
 #  email                  :string
 #  encrypted_password     :string           default(""), not null
+#  first_name             :string
+#  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  location               :string
-#  name                   :string
+#  middle_name            :string           default("")
 #  phone_number           :string
 #  provider               :string           default("email"), not null
 #  remember_created_at    :datetime
